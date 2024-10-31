@@ -10,12 +10,14 @@ N = 256;
 N_cp = N / 4;
 % preamble len
 Tp = 1000;
+% 이미지 경로
+img_path = 'C:\Users\okmun\OneDrive\대외 공개 가능\고려대학교 전기전자공학부\24_2\통신시스템설계 (신원재 교수님)\실습 수업 매트랩 코드\week9_HW';
 
 if WHETHER_JUST_TX_OR_GET_READY_FOR_TX == false
     % Tx_signal을 만들 때에는, 깨끗하게 백지에서 시작합니다.
     % 굳이 여기서 if문을 한 번 더 쓴 것은, DISP 함수 정의가 지워지지 않게 하기 위해서입니다.
     clc;
-    clearvars -except sampling_freq N N_cp Tp;
+    clearvars -except sampling_freq N N_cp Tp img_path;
     close all;
     WHETHER_JUST_TX_OR_GET_READY_FOR_TX = false;
 end
@@ -71,8 +73,9 @@ else
     % % preamble len
     % Tp = 1000;
     
+    % % 맨 위로 위치 옮겼습니다. 원래 여기 있었다는 흔적 남기기 위해 지우지 않고 주석으로 처리합니다.
     DISP('image 경로를 지정해줍니다.');
-    img_path = 'C:\Users\okmun\OneDrive\대외 공개 가능\고려대학교 전기전자공학부\24_2\통신시스템설계 (신원재 교수님)\실습 수업 매트랩 코드\week9_HW';
+    % img_path = 'C:\Users\okmun\OneDrive\대외 공개 가능\고려대학교 전기전자공학부\24_2\통신시스템설계 (신원재 교수님)\실습 수업 매트랩 코드\week9_HW';
     DISP(img_path);
     
     DISP('image를 읽어옵니다.');
