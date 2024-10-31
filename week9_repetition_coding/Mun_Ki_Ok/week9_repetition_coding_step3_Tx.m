@@ -1,11 +1,21 @@
 WHETHER_JUST_TX_OR_GET_READY_FOR_TX = true;
 % WHETHER_JUST_TX_OR_GET_READY_FOR_TX = false;
 
+% Parameter setting
+% sampling frequency
+sampling_freq = 10000;
+% N, that is #sub-carrier
+N = 256;
+% cyclic prefix len
+N_cp = N / 4;
+% preamble len
+Tp = 1000;
+
 if WHETHER_JUST_TX_OR_GET_READY_FOR_TX == false
     % Tx_signal을 만들 때에는, 깨끗하게 백지에서 시작합니다.
     % 굳이 여기서 if문을 한 번 더 쓴 것은, DISP 함수 정의가 지워지지 않게 하기 위해서입니다.
     clc;
-    clear all;
+    clearvars -except sampling_freq N N_cp Tp;
     close all;
     WHETHER_JUST_TX_OR_GET_READY_FOR_TX = false;
 end
@@ -36,10 +46,11 @@ if WHETHER_JUST_TX_OR_GET_READY_FOR_TX
     % 재생이 끝날 때까지 대기
     fprintf('재생 중입니다.');
     while isplaying(player)
-        pause(0.5);  % 1초 대기 후 재생 상태 다시 체크
+        pause(0.5);  % X초 대기 후 재생 상태 다시 체크
         fprintf('.');
     end
     end_time = datetime("now", "Format", "yyyy-MM-dd HH:mm:ss");
+    DISP('.');
     DISP(['tx 종료 시각: ', char(end_time)]);
     elapsed_time = end_time - start_time;
     DISP(['tx 중 총 경과 시간[s]: ', char(elapsed_time)]);
@@ -48,16 +59,17 @@ else
     DISP('############### Step 3. 이미지 전송에 repetition coding을 적용해 보겠습니다.');
     DISP('################################### tx_signal을 만들겠습니다.');
     
-    % Parameter setting
-    DISP('sampling frequency, N(=#sub-carrier), cyclic prefix len, preamble len 을 설정합니다');
-    % sampling frequency
-    sampling_freq = 10000;
-    % N, that is #sub-carrier
-    N = 256;
-    % cyclic prefix len
-    N_cp = N / 4;
-    % preamble len
-    Tp = 1000;
+    % % Parameter setting
+    % % 맨 위로 위치 옮겼습니다. 원래 여기 있었다는 흔적 남기기 위해 지우지 않고 주석으로 처리합니다.
+    % DISP('sampling frequency, N(=#sub-carrier), cyclic prefix len, preamble len 을 설정합니다.');
+    % % sampling frequency
+    % sampling_freq = 10000;
+    % % N, that is #sub-carrier
+    % N = 256;
+    % % cyclic prefix len
+    % N_cp = N / 4;
+    % % preamble len
+    % Tp = 1000;
     
     DISP('image 경로를 지정해줍니다.');
     img_path = 'C:\Users\okmun\OneDrive\대외 공개 가능\고려대학교 전기전자공학부\24_2\통신시스템설계 (신원재 교수님)\실습 수업 매트랩 코드\week9_HW';
