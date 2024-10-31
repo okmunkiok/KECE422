@@ -48,6 +48,7 @@ else
     DISP('############### Step 3. 이미지 전송에 repetition coding을 적용해 보겠습니다.');
     DISP('################################### tx_signal을 만들겠습니다.');
     
+    % Parameter setting
     DISP('sampling frequency, N(=#sub-carrier), cyclic prefix len, preamble len 을 설정합니다');
     % sampling frequency
     sampling_freq = 10000;
@@ -129,5 +130,5 @@ else
         end
     end
 
-    DISP("Tx가 준비되었습니다.");
+    DISP("############Tx가 준비되었습니다.");
 end
