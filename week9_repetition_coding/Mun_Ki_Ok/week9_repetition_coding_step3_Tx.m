@@ -7,7 +7,7 @@ sampling_freq = 10000;
 % repetition coding 반복 횟수
 repetition_factor = 3;
 % N, that is #sub-carrier
-N = 256;
+N = 16;
 % cyclic prefix len
 N_cp = N / 4;
 % 이미지 경로
