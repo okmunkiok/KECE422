@@ -1,9 +1,9 @@
-% 깨끗하게 백지에서 시작합니다
+% 깨끗하게 백지에서 시작합니다.
 clc;
 clear all;
 close all;
 
-% disp 함수의 출력 여부를 맨 위에서 변수 하나로 제어하기 위한 함수 정의입니다
+% DISP 함수의 출력 여부를 맨 위에서 변수 하나로 제어하기 위한 함수 정의입니다.
 % WHETHER_DISP = false;
 WHETHER_DISP = true;
 
